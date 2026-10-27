@@ -1,0 +1,35 @@
+[build-system]
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "monagen"
+version = "1.0.0"
+description = "1080p Social Media Graphic Generator using 16-Bit Galaxy & 2.5D Foxxo Witch Sprites"
+readme = "README.md"
+requires-python = ">=3.9"
+authors = [
+    { name = "Cosmic Security & Development Services", email = "dev@cosmic.security" }
+]
+keywords = ["pixel-art", "16-bit", "image-generator", "social-media", "retrogame", "cybersecurity"]
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "Operating System :: OS Independent",
+    "Topic :: Multimedia :: Graphics",
+]
+dependencies = [
+    "Pillow>=10.0.0",
+    "numpy>=1.24.0",
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=7.0.0",
+]
+
+[project.scripts]
+monagen = "cli:run_cli"
+
+[tool.setuptools.packages.find]
+where = ["."]
+include = ["core*", "core.*"]

@@ -113,15 +113,19 @@ def build_parser() -> argparse.ArgumentParser:
 
 def args_to_config(args: argparse.Namespace) -> PostConfig:
     """Converts parsed command line arguments into a core PostConfig object."""
+    sprite = args.sprite.strip() if (args.sprite and args.sprite.strip()) else "cheer"
+    background = args.background.strip() if (args.background and args.background.strip()) else "cosmic_galaxy"
+    badge = args.badge.strip() if (args.badge and args.badge.strip()) else None
+
     return PostConfig(
         title=args.title,
         text=args.text,
         ratio=AspectRatio(args.ratio),
-        badge=args.badge if args.badge else None,
-        sprite=args.sprite,
+        badge=badge,
+        sprite=sprite,
         sprite_position=SpritePosition(args.position),
         sprite_scale=args.scale,
-        background=args.background,
+        background=background,
         hud_score=args.score,
         hud_stage=args.stage,
         hud_lives=args.lives,
